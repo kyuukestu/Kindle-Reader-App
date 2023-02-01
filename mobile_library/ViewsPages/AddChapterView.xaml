@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:mobile_library.ViewsPages"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    x:Class="mobile_library.ViewsPages.AddChapterView">
+    <ContentPage.Content>
+        <Grid Margin="10, 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <!--Chapter Title & Number Section-->
+            <pancake:PancakeView
+                Grid.Row="0"
+                Margin="10, 0"
+                BackgroundColor="FloralWhite"
+                CornerRadius="50, 50, 0,0"
+                HeightRequest="75">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--Chapter Number-->
+                    <Entry Grid.Column="0"
+                           x:Name="ChapterNumber"
+                           Placeholder="Chp: #"
+                           PlaceholderColor="Gray"
+                           TextColor="Black"
+                           HorizontalTextAlignment="Center"
+                           WidthRequest="75"
+                           />
+                    <!--Chapter Title-->
+                    <Entry Grid.Column="1"
+                           x:Name="ChapterTitle"
+                           Placeholder="Enter Chapter Name"
+                           PlaceholderColor="Gray"
+                           TextColor="Black"
+                           HorizontalTextAlignment="Center"
+                           />
+                </Grid>
+            </pancake:PancakeView>
+           
+            <pancake:PancakeView Grid.Row="1"
+                                 Margin="10, 0"
+                                 BackgroundColor="WhiteSmoke">
+                <StackLayout>
+                    <!--Chapter Content-->
+                    <!--BookID-->
+                    <Label x:Name="BookID"
+                           Text="{Binding SelectedBook}"
+                           TextColor="Black"/>
+                    <Editor
+                        x:Name="ChapterContent"
+                        Placeholder="Begin Writing..."
+                        PlaceholderColor="Gray"
+                        Keyboard="Text"
+                        IsSpellCheckEnabled="True"
+                        HeightRequest="450"
+                        TextColor="Black"
+                     />
+
+                    <Button x:Name="SaveChapter" Text="Save" Clicked="SaveChapter_Clicked" />
+                </StackLayout>
+            </pancake:PancakeView>
+
+             <!--Home Button-->
+                     <pancake:PancakeView Grid.Row="2"  
+                                     CornerRadius="60, 60, 0, 0">
+                    <Button Text="Go Home"
+                            x:Name="HomeButton"
+                            BackgroundColor="SpringGreen"
+                            HeightRequest="50"
+                            Clicked="HomeButton_Clicked"/>
+                </pancake:PancakeView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

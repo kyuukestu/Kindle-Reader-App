@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="mobile_library.ViewsPages.SettingsView">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button
+                Text="Manage Genre"
+                x:Name="GenreButton"
+                Clicked="GenreButton_Clicked"/>
+            <Button
+                Text="Manage Books"
+                x:Name="BookButton"
+                Clicked="BookButton_Clicked" />
+            <Button
+                Text="Manage Chapter"
+                x:Name="ChapterButton"
+                Clicked="ChapterButton_Clicked" />
+            <Button
+                Text="Manage Library"
+                x:Name="LibraryButton"
+                Clicked="LibraryButton_Clicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

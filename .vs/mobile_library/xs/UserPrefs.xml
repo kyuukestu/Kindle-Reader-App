@@ -1,0 +1,40 @@
+﻿<Properties StartupConfiguration="{E1559C68-6439-4B2A-B8CC-85A139FE0E2F}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="mobile_library/ViewsPages/HomeTabs/MainTabbedView.xaml.cs">
+    <Files>
+      <File FileName="mobile_library/ViewModels/MainTabbedViewModel.cs" Line="1" Column="1" />
+      <File FileName="mobile_library/ViewModels/SearchViewModel.cs" Line="24" Column="45" />
+      <File FileName="mobile_library/ViewsPages/SearchView.xaml.cs" Line="17" Column="39" />
+      <File FileName="mobile_library/ViewsPages/HomeTabs/MainTabbedView.xaml.cs" Line="73" Column="10" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="mobile_library" expanded="True">
+            <Node name="mobile_library" expanded="True">
+              <Node name="Services" expanded="True" />
+              <Node name="ViewModels" expanded="True" />
+              <Node name="ViewsPages" expanded="True">
+                <Node name="BookDetails" expanded="True" />
+                <Node name="HomeTabs" expanded="True">
+                  <Node name="AuthorView.xaml" expanded="True" />
+                  <Node name="MainTabbedView.xaml" expanded="True">
+                    <Node name="MainTabbedView.xaml.cs" selected="True" />
+                  </Node>
+                </Node>
+                <Node name="GenreView.xaml" expanded="True" />
+                <Node name="SearchView.xaml" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.mobile__library.Android PreferredExecutionTarget="Android.b30ab32d" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

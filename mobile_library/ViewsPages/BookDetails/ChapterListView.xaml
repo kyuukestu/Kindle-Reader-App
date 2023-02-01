@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:vm="clr-namespace:mobile_library.ViewModels"
+    x:Class="mobile_library.ViewsPages.ChapterListView">
+    <ContentPage.BindingContext>
+        <vm:ChapterListViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <pancake:PancakeView Grid.Row="0"
+                Margin="5"
+                BackgroundColor="FloralWhite"
+                CornerRadius="50, 50, 0, 0"
+                >
+                <Grid Padding="10"
+                      Margin="0, 20, 0, 0"
+                      >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <!--Latest Chapter Title-->
+                    <Label Grid.Row="0"
+                           Text="All Chapters"
+                           TextColor="Black"
+                           HorizontalOptions="CenterAndExpand"
+                           FontSize="25"
+                           FontAttributes="Bold"/>
+                    <CollectionView ItemsSource="{Binding Cobel}"
+                                    x:Name="BookChapters"
+                                    Margin="0, 20, 10, 0"
+                                    VerticalScrollBarVisibility="Always"
+                                    VerticalOptions="Start"
+                                    SelectionChanged="BookChapters_SelectionChanged">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                    <Grid Margin="5"
+                                          Padding="10">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackLayout Orientation="Horizontal"
+                                                     Spacing="10">
+                                            <!--Chapter ID/Number-->
+                                         <Image Source="{Binding ChapterID}"
+                                                   WidthRequest="50"
+                                                   Aspect="Fill"  />
+                                        <!--Chapter Name-->
+                                        <Label 
+                                               Text="{Binding ChapterName}"
+                                               FontSize="12"
+                                               TextColor="Blue"/>
+                                        </StackLayout>
+                                        
+                                    </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>       
+             </pancake:PancakeView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

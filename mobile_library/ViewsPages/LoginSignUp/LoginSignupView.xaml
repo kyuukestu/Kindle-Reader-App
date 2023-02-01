@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:mobile_library.ViewModels" 
+    x:Class="mobile_library.ViewsPages.LoginSignupView">
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel />
+    </ContentPage.BindingContext>
+        <ContentPage.Content>
+            <Grid
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                BackgroundColor="Black">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <!--Hasa Flower-->
+                <Image
+                    Grid.Row="0"
+                    Margin="0, 30"
+                    Source="hasa.png"
+                    Aspect="AspectFit"
+                    HeightRequest="120"
+                    WidthRequest="80"
+                    BackgroundColor="Transparent"/>
+                <Frame
+                    Grid.Row="1"
+                    Margin="0, 0, 0, -40"
+                    BorderColor="White"
+                    HasShadow="True"
+                    CornerRadius="50">
+                    <Grid
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        RowSpacing="20"
+                        Padding="20, 50, 20, 0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+
+                        <!--Welcome Message-->
+                        <Label
+                            Grid.Row="0"
+                            Text="Welcome to App-Name"
+                            FontSize="Large"
+                            FontAttributes="Bold"
+                            TextColor="Black"
+                            HorizontalTextAlignment="Center"/>
+                        <Label
+                            Grid.Row="1"
+                            Text="Login with your credentials."
+                            FontSize="Caption"
+                            FontAttributes="Italic"
+                            TextColor="Black"
+                            HorizontalTextAlignment="Center"/>
+                        <!--Username Frame-->
+                        <Frame
+                            x:Name="usernameframe"
+                            Grid.Row="2"
+                            CornerRadius="50"
+                            BorderColor="Blue"
+                            >
+
+                            <Entry
+                                x:Name="Username"
+                                Placeholder="Enter Username"
+                                PlaceholderColor="Gray"
+                                TextColor="Black"
+                                Text="{Binding Username}"
+                                />
+
+                        </Frame>
+                        <!--Password Frame-->
+                        <Frame
+                           x:Name="passwordframe"
+                            Grid.Row="3"
+                            CornerRadius="50"
+                            BorderColor="Blue"
+                            >
+                             <Entry
+                                x:Name="Passord"
+                                Placeholder="Enter Password"
+                                PlaceholderColor="Gray"
+                                TextColor="Black"
+                                Text="{Binding Password}"
+                                IsPassword="True"
+                                />
+                        </Frame>
+
+                        <!--Login & Signup Buttons Frame-->
+                        <Frame
+                            Grid.Row="4"
+                            BackgroundColor="Transparent"
+                            CornerRadius="50"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand"
+                        >
+                            <Grid
+                                ColumnSpacing="50">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                               
+                                <Button
+                                    x:Name="LoginButton"
+                                    Grid.Column="0"
+                                    CornerRadius="50"
+                                    Text="Login"
+                                    HeightRequest="60"
+                                    WidthRequest="100"
+                                    Command="{Binding LoginCommand}"
+                                    />
+
+                                <Button
+                                    x:Name="SignupButton"
+                                    Grid.Column="1"
+                                    CornerRadius="50"
+                                    Text="Signup"
+                                    HeightRequest="60"
+                                    WidthRequest="100"
+                                    Command="{Binding RegisterCommand}"
+                                    />
+                                <!--Currently bound to register command, may be changed to send user to a Registration Page, and then that page should be bound to register command-->
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                 </Frame>
+            </Grid>
+        </ContentPage.Content>
+    
+</ContentPage>

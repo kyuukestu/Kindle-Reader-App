@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helpers="clr-namespace:mobile_library.Helpers"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:vm="clr-namespace:mobile_library.ViewModels"
+    x:Class="mobile_library.ViewsPages.UserBooksView">
+    <ContentPage.BindingContext>
+        <vm:UserBooksViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Entry Grid.Row="0" x:Name="User" Text="{Binding Username}" />
+             <!--Your Books Collection View-->
+                    <pancake:PancakeView Grid.Row="1"
+                                         Padding="10"
+                                         >
+                        <pancake:PancakeView.Border>
+                            <pancake:Border Color="Black" Thickness="5"/>
+                        </pancake:PancakeView.Border>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                     
+                            <Label Grid.Row="0"
+                                   Text="Books"
+                                   FontAttributes="Bold"
+                                   FontSize="15"
+                                   TextColor="Black"
+                                   HorizontalOptions="Center"/>
+
+                            <pancake:PancakeView Grid.Row="1">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <!--Collection View-->
+                                    <CollectionView ItemsSource="{Binding BooksbyAuthor}"
+                                            x:Name="AuthoredBooksCollection"
+                                            Margin="10, 0"
+                                            HeightRequest="150"
+                                            ItemsLayout="VerticalList"
+                                            VerticalOptions="Start"
+                                            SelectionMode="Single"
+                                            SelectionChanged="AuthoredBooksCollection_SelectionChanged"
+                                            >
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>    
+                                                    <Frame HasShadow="False"
+                                                       BackgroundColor="LightSlateGray"
+                                                       Margin="0, 10"
+                                                       Padding="10">
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="Auto"/>
+                                                            <ColumnDefinition Width="Auto"/>
+                                                        </Grid.ColumnDefinitions>
+                      
+                                                        <!--Book Image-->
+                                                        <pancake:PancakeView Grid.Column="0"
+                                                                             CornerRadius="15"
+                                                                             Margin="0, 0, 10, 0"                                                                             WidthRequest="200"
+                                                                             >
+                                                                <Image Source="{Binding CoverImageUrl}"
+                                                                       />
+                                                         </pancake:PancakeView>
+                                                        <!--Book Title-->
+                                                        <Label  Grid.Column="1"
+                                                               Text="{Binding BookName}"
+                                                               TextColor="Black"
+                                                               FontSize="15"
+                                                               FontAttributes="Bold"
+                                                               HorizontalOptions="CenterAndExpand"/>
+                                                        <!--Book Description-->
+                                                        <Label Grid.Column="1"
+                                                               Text="{Binding BookDescription}"
+                                                               FontSize="12"
+                                                               TextColor="Black"
+                                                               HorizontalOptions="StartAndExpand"
+                                                               VerticalOptions="StartAndExpand"/>
+                                            
+                                                    </Grid>
+                                                </Frame>
+                                    
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                        </CollectionView>
+                                </Grid>
+                            </pancake:PancakeView>
+                            
+                        </Grid>
+                    </pancake:PancakeView>
+
+             <!--Return to Home button-->
+                <pancake:PancakeView Grid.Row="2"
+                                     Grid.Column="0"
+                                     Grid.ColumnSpan="2"
+                                     CornerRadius="60, 60, 0, 0">
+                    <Button Text="Go Home"
+                            BackgroundColor="SpringGreen"
+                            HeightRequest="50"
+                            Command="{Binding HomeCommand}"/>
+                </pancake:PancakeView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:vm="clr-namespace:mobile_library.ViewModels"
+    x:Class="mobile_library.ViewsPages.AuthorView">
+    <!--<ContentPage.BindingContext>
+        <vm:AuthorViewModel />
+    </ContentPage.BindingContext>-->
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid BackgroundColor="FloralWhite"
+                  Margin="15, 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <!--Header-->
+            <Label Grid.Row="0"
+                   Text="Write your own story!"
+                   TextColor="Black"
+                   FontSize="30"
+                   FontAttributes="Bold"/>
+            <pancake:PancakeView Grid.Row="1"
+                                 CornerRadius="50, 50, 0, 0"
+                                 Padding="10"
+                                 Margin="10, 0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <!--Write New Book Form-->
+                    <pancake:PancakeView Grid.Row="0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            
+                            <!--Author Name-->
+                            <pancake:PancakeView Grid.Row="0"
+                                                 Padding="10"
+                                                 CornerRadius="50"
+                                                 BackgroundColor="White">
+                                <pancake:PancakeView.Border>
+                                    <pancake:Border Color="Black" Thickness="3"/>
+                                </pancake:PancakeView.Border>
+                                <Entry x:Name="AuthorName"
+                                   Text="{Binding Username}"
+                                   IsVisible="True"
+                                   IsReadOnly="True"
+                                   TextColor="Black"/>
+                            </pancake:PancakeView>
+                            
+
+                            <!--Book Name-->
+                             <pancake:PancakeView Grid.Row="1"
+                                                  Padding="10"
+                                                  CornerRadius="50"
+                                                  BackgroundColor="White">
+                                <pancake:PancakeView.Border>
+                                    <pancake:Border Color="Black" Thickness="3"/>
+                                </pancake:PancakeView.Border>
+                                  <Entry x:Name="BookName"
+                                        Placeholder="Book Name"
+                                        PlaceholderColor="DimGray"
+                                        TextColor="Black"/>
+                             </pancake:PancakeView>
+                           
+
+                            <!--Book Description-->
+                            <pancake:PancakeView Grid.Row="2"
+                                                 Padding="10"
+                                                 CornerRadius="50"
+                                                 BackgroundColor="White">
+                                <pancake:PancakeView.Border>
+                                    <pancake:Border Color="Black" Thickness="3"/>
+                                </pancake:PancakeView.Border>
+                                <Entry x:Name="BookDescription"
+                                       Placeholder="Book Description"
+                                       PlaceholderColor="DimGray"
+                                       TextColor="Black"/>
+                             </pancake:PancakeView>
+                            
+
+                            <!--Genre ID-->
+                            <pancake:PancakeView Grid.Row="3"
+                                                 Padding="10"
+                                                 CornerRadius="50"
+                                                 BackgroundColor="White">
+                                <pancake:PancakeView.Border>
+                                    <pancake:Border Color="Black" Thickness="3"/>
+                                </pancake:PancakeView.Border>
+                                 <Entry x:Name="GenreID"
+                                       Placeholder="Genre ID"
+                                       PlaceholderColor="DimGray"
+                                       TextColor="Black"/>
+                             </pancake:PancakeView>
+                           
+
+                            <!--Cover Image Url-->
+                            <pancake:PancakeView Grid.Row="4"
+                                                 Padding="10"
+                                                 CornerRadius="50"
+                                                 BackgroundColor="White">
+                                <pancake:PancakeView.Border>
+                                    <pancake:Border Color="Black" Thickness="3"/>
+                                </pancake:PancakeView.Border>
+                                <Entry x:Name="CoverImageUrl"
+                                       Placeholder="Cover Image Url"
+                                       PlaceholderColor="DimGray"
+                                       TextColor="Black"/>
+
+                             </pancake:PancakeView>
+                            
+
+                            <!--Submit button-->
+                             <pancake:PancakeView Grid.Row="5"
+                                                  Padding="10"
+                                                  CornerRadius="80"
+                                                  BackgroundColor="White"
+                                                  HorizontalOptions="End">
+                                <pancake:PancakeView.Border>
+                                    <pancake:Border Color="Black" Thickness="3"/>
+                                </pancake:PancakeView.Border>
+                                 <ImageButton x:Name="WriteNewBook"
+                                         
+                                         Source="baseline_edit_black_24dp.png"
+                                         HeightRequest="50"
+                                         HorizontalOptions="End"
+                                         BackgroundColor="Transparent"
+                                         Clicked="WriteNewBook_Clicked"/>
+                              </pancake:PancakeView>
+                            
+                        </Grid>
+                    </pancake:PancakeView>
+
+         
+                 <!--See My Books Button-->
+                <pancake:PancakeView Grid.Row="3"
+                                     CornerRadius="60, 60, 0, 0">
+                    <Button x:Name="MyBooksButton"
+                            Text="See My Books"
+                            BackgroundColor="SpringGreen"
+                            HeightRequest="50"
+                            Clicked="MyBooksButton_Clicked"
+                           />
+                </pancake:PancakeView>
+
+                <!--Home Button-->
+                <pancake:PancakeView Grid.Row="4"  
+                                    CornerRadius="60, 60, 0, 0">
+                    <Button Text="Go Home"
+                            BackgroundColor="SpringGreen"
+                            HeightRequest="50"
+                            Command="{Binding HomeCommand}"/>
+                </pancake:PancakeView>
+
+                </Grid>
+            </pancake:PancakeView>
+
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

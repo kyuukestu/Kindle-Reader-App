@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:vm="clr-namespace:mobile_library.ViewModels"
+            xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" xmlns:ViewsPages="clr-namespace:mobile_library.ViewsPages"
+             x:Class="mobile_library.ViewsPages.MainTabbedView">
+  <!--Pages can be added as references or inline-->
+
+  <ContentPage Title="Home" IconImageSource="outline_home_black_24dp.png">
+      <ContentPage.BindingContext>
+          <vm:MainTabbedViewModel />
+      </ContentPage.BindingContext>
+      <ContentPage.Content>
+      <ScrollView>
+          <Grid Margin="20, 0, 20, 0"
+                BackgroundColor="BurlyWood"
+                >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--Header Section/Frame-->
+            <Frame Grid.Row="0"   
+                BackgroundColor="Transparent"
+                HeightRequest="50"
+                >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <!--Search bar-->
+                    <Frame Grid.Column="0"
+                           CornerRadius="50"
+                           BackgroundColor="White"
+                           Padding="10, 10, 10, 10"
+                           >
+                            <StackLayout Orientation="Horizontal">
+                                <SearchBar x:Name="SearchBar"
+                                       Grid.Column="0"
+                                       Placeholder="Search Books"
+                                       PlaceholderColor="DarkGray"
+                                       TextColor="Black"
+                                       SearchButtonPressed="SearchBar_SearchButtonPressed"/>
+                                <StackLayout Orientation="Vertical"
+                                             RadioButtonGroup.GroupName="Search"
+                                             RadioButtonGroup.SelectedValue="{Binding Selection}"
+                                             >
+                                    <Label Text="Search by:"
+                                           FontSize="Subtitle"/>
+                                     <RadioButton x:Name="AuthorNameSearch"
+                                                  Content="Author Name"
+                                                  
+                                         />
+                                     <RadioButton x:Name="BookNameSearch"
+                                                  Content="Book Name"
+                                         />
+                                    <Label Text="{Binding Selection}" />
+                                </StackLayout>
+                         
+                            </StackLayout>
+                    </Frame>
+
+                    <!--Logout Button-->
+                    <ImageButton Grid.Column="1"
+                                 x:Name="LogoutButton"
+                                 Source="outline_logout_black_24dp.png"
+                                 BackgroundColor="Transparent"
+                                 Clicked="LogoutButton_Clicked"
+                                 />
+                </Grid>
+            </Frame>
+            <!--Genre Section-->
+            <Frame Grid.Row="1"
+                CornerRadius="25">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0"
+                           Text="Genres"
+                           TextColor="Black"
+                           TextDecorations="Underline"
+                           FontAttributes="Bold"
+                           FontSize="20"
+                           HorizontalOptions="CenterAndExpand"/>
+                    <!--Genre Collection View-->
+                    <CollectionView ItemsSource="{Binding Genres}"
+                                    x:Name="GenreCollection"
+                                    Margin="0, 20"
+                                    HeightRequest="150"
+                                    VerticalOptions="FillAndExpand"
+                                    HorizontalScrollBarVisibility="Always"
+                                    ItemsLayout="HorizontalList"
+                                    SelectionChanged="GenreCollection_SelectionChanged"
+                                    SelectionMode="Single"
+                                    Grid.Row="1"
+                                    BackgroundColor="WhiteSmoke"
+                                    >
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="0, 0, 15, 0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <!--Genre Image--> 
+                                    <Frame Grid.Row="0"
+                                           HeightRequest="75"
+                                           HasShadow="True"
+                                           BackgroundColor="DimGray"
+                                           >
+                                        <Image Source="{Binding GenreImageUrl}"
+                                               Aspect="AspectFit"/>
+                                    </Frame>
+                                    <!--Genre Labels-->
+                                    <Label Grid.Row="1"
+                                           Text="{Binding GenreName}"
+                                           TextColor="Black"
+                                           TextDecorations="Underline"
+                                           FontAttributes="Bold"
+                                           HorizontalTextAlignment="Center" />
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </Frame>
+            <!--Latest Series Section-->
+            <Frame Grid.Row="2"
+                CornerRadius="25">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0"
+                           Text="Latest Books"
+                           TextColor="Black"
+                           FontSize="20"
+                           TextDecorations="Underline"
+                           FontAttributes="Bold"
+                           HorizontalOptions="CenterAndExpand"/>
+                    <!--Latest Series Collection View-->
+                    <CollectionView ItemsSource="{Binding LatestBooks}"
+                                    x:Name="LastestSeriesCollection"
+                                    Margin="0, 20"
+                                    HeightRequest="150"
+                                    VerticalOptions="FillAndExpand"
+                                    HorizontalScrollBarVisibility="Always"
+                                    ItemsLayout="HorizontalList"
+                                    SelectionChanged="LastestSeriesCollection_SelectionChanged"
+                                    SelectionMode="Single"
+                                    Grid.Row="1"
+                                    BackgroundColor="WhiteSmoke">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="0, 0, 15, 0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <!--Book Image-->
+                                    <Frame Grid.Row="0"
+                                           HeightRequest="75"
+                                           HasShadow="True"
+                                           BackgroundColor="DimGray"
+                                           >
+                                        <Image Source="{Binding CoverImageUrl}" />
+                                    </Frame>
+                                    <!--Book Name-->
+                                    <Label Grid.Row="1"
+                                           Text="{Binding BookName}"
+                                           TextColor="Black"
+                                           FontSize="12"
+                                           FontAttributes="Bold"
+                                           HorizontalTextAlignment="Center" />
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </Frame>
+            <!--Latest Chapters Collection View-->
+            <pancake:PancakeView Grid.Row="3"
+                Margin="5"
+                BackgroundColor="FloralWhite"
+                CornerRadius="50, 50, 0, 0"
+                >
+                <Grid Padding="10"
+                      Margin="0, 20, 0, 0"
+                      >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <!--Latest Chapter Title-->
+                    <Label Grid.Row="0"
+                           Text="Latest Chapters"
+                           TextColor="Black"
+                           HorizontalOptions="CenterAndExpand"
+                           FontSize="25"
+                           FontAttributes="Bold"/>
+                    <CollectionView ItemsSource="{Binding LatestChapters}"
+                                    x:Name="latestchapters"
+                                    Margin="0, 20, 10, 0"
+                                    VerticalScrollBarVisibility="Always"
+                                    VerticalOptions="Start"
+                                    SelectionMode="Single"
+                                    SelectionChanged="latestchapters_SelectionChanged">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                    <Grid Margin="0, 15, 15, 15"
+                                          Padding="25">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <!--Book Image-->
+                                        <pancake:PancakeView Grid.Column="0"
+                                                             CornerRadius="10">
+                                            <Image Source="{Binding CoverImageUrl}"
+                                                   WidthRequest="50"
+                                                   Aspect="Fill"  />
+                                        </pancake:PancakeView>
+                                        <!--Chapter Name-->
+                                        <Label Grid.Column="1"
+                                               Text="{Binding ChapterName}"
+                                               FontSize="12"
+                                               TextColor="Blue"/>
+                                    </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>       
+             </pancake:PancakeView>
+        </Grid>
+      </ScrollView>
+      </ContentPage.Content>
+  </ContentPage>
+  
+  <ViewsPages:LibraryView Title="Library" IconImageSource="outline_library_books_black_24dp.png" />
+
+
+  <ViewsPages:AuthorView Title="Author" IconImageSource="outline_edit_note_black_24dp.png" />
+
+  <ViewsPages:SettingsView Title="Settings" />
+
+</TabbedPage>

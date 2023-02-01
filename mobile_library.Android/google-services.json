@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "738081801476",
+    "firebase_url": "https://mobilelibraryapp-default-rtdb.firebaseio.com",
+    "project_id": "mobilelibraryapp",
+    "storage_bucket": "mobilelibraryapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:738081801476:android:9b86333a0268dad7a4fc51",
+        "android_client_info": {
+          "package_name": "com.proto.mobilelibrary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "738081801476-48h3sb3esv4ifv3tiendm158r6qoagui.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBF4uY5ft7XbvH3Pgzrn7Fs-WQqWayOvow"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "738081801476-48h3sb3esv4ifv3tiendm158r6qoagui.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

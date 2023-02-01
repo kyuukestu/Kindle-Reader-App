@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2401" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.2" />
+    <PackageReference Include="FirebaseDatabase.net" Version="4.0.7" />
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+    <PackageReference Include="Plugin.FirebasePushNotification" Version="3.4.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Models\" />
+    <None Remove="Views\" />
+    <None Remove="ViewModels\" />
+    <None Remove="FirebaseDatabase.net" />
+    <None Remove="Xamarin.Forms.PancakeView" />
+    <None Remove="Xamarin.Forms.Visual.Material" />
+    <None Remove="Services\" />
+    <None Remove="Helpers\" />
+    <None Remove="sqlite-net-pcl" />
+    <None Remove="ViewsPages\LoginSignUp\" />
+    <None Remove="ViewsPages\HomeTabs\" />
+    <None Remove="ViewsPages\BookDetails\" />
+    <None Remove="ViewsPages\Reading\" />
+    <None Remove="Plugin.FirebasePushNotification" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewsPages\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Models\" />
+    <Folder Include="Services\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="ViewsPages\LoginSignUp\" />
+    <Folder Include="ViewsPages\HomeTabs\" />
+    <Folder Include="ViewsPages\BookDetails\" />
+    <Folder Include="ViewsPages\Reading\" />
+  </ItemGroup>
+</Project>

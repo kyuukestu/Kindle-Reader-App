@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    x:Class="mobile_library.ViewsPages.AuthorReadingView">
+    <ContentPage.Content>
+        <Grid Margin="10, 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+
+            </Grid.RowDefinitions>
+            <!--Chapter Title & Number Section-->
+            <pancake:PancakeView
+                Grid.Row="0"
+                Margin="10, 0"
+                BackgroundColor="FloralWhite"
+                CornerRadius="50, 50, 0,0"
+                HeightRequest="75">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--Chapter Number-->
+                    <Entry Grid.Column="0"
+                           x:Name="ChapterNumber"
+                           Text="{Binding SelectedChapter.ChapterID}"
+                           TextColor="Black"
+                           HorizontalTextAlignment="Center"
+                           WidthRequest="75"
+                           />
+                    <!--Chapter Title-->
+                    <Entry Grid.Column="1"
+                           x:Name="ChapterTitle"
+                           Text="{Binding SelectedChapter.ChapterName}"
+                           TextColor="Black"
+                           HorizontalTextAlignment="Start"
+                           
+                           />
+                </Grid>
+            </pancake:PancakeView>
+           
+            <pancake:PancakeView Grid.Row="1"
+                                 Margin="10, 0"
+                                 BackgroundColor="WhiteSmoke">
+                <StackLayout>
+                    <!--Chapter Content-->
+                    <Editor
+                        x:Name="ChapterContent"
+                        Text="{Binding SelectedChapter.ChapterContent}"
+                        HeightRequest="450"
+                        TextColor="Black"
+                     />
+
+                </StackLayout>
+            </pancake:PancakeView>
+
+            <pancake:PancakeView Grid.Row="2"
+                                 Margin="10, 0"
+                                 CornerRadius="25">
+                <pancake:PancakeView.Border>
+                    <pancake:Border Color="Green" Thickness="5"/>
+                </pancake:PancakeView.Border>
+                <Button x:Name="EditChapter" 
+                    Text="Save Changes"
+                    Clicked="EditChapter_Clicked" />
+            </pancake:PancakeView>
+            
+
+             <!--Back button-->
+            <pancake:PancakeView Grid.Row="3"
+                                    Padding="10"
+                                    CornerRadius="80"
+                                    BackgroundColor="White"
+                                    HorizontalOptions="End">
+            <pancake:PancakeView.Border>
+                <pancake:Border Color="Green" Thickness="3"/>
+            </pancake:PancakeView.Border>
+                <ImageButton x:Name="BackButton"               
+                        Source="arrow_back_FILL0_wght400_GRAD0_opsz48.png"
+                        HeightRequest="50"
+                        HorizontalOptions="End"
+                        BackgroundColor="Transparent"
+                        Clicked="BackButton_Clicked"/>
+            </pancake:PancakeView>
+
+             <!--Home Button-->
+            <pancake:PancakeView Grid.Row="4"  
+                                 CornerRadius="60, 60, 0, 0">
+            <Button Text="Go Home"
+                    x:Name="HomeButton"
+                    BackgroundColor="SpringGreen"
+                    HeightRequest="50"
+                    Command="{Binding HomeCommand}"/>
+            </pancake:PancakeView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

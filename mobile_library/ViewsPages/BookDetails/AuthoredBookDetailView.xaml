@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:mobile_library.ViewModels" xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    x:Class="mobile_library.ViewsPages.BookDetails.AuthoredBookDetailView">
+        <!--Book Details Tab-->
+    <ContentPage Title="Overview">
+        <!--<ContentPage.BindingContext>
+            <vm:AuthorViewModel/>
+        </ContentPage.BindingContext>-->
+        <ContentPage.Content>
+            <ScrollView>
+                <Grid BackgroundColor="Black"
+                  Margin="15, 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>  
+
+                      <!--Back button-->
+                    <pancake:PancakeView Grid.Row="0"
+                                         Padding="10"
+                                         CornerRadius="80"
+                                         BackgroundColor="White"
+                                         HorizontalOptions="Start">
+                    <pancake:PancakeView.Border>
+                        <pancake:Border Color="Green" Thickness="3"/>
+                    </pancake:PancakeView.Border>
+                        <ImageButton x:Name="BackButton"               
+                                Source="arrow_back_FILL0_wght400_GRAD0_opsz48.png"
+                                HeightRequest="50"
+                                HorizontalOptions="End"
+                                BackgroundColor="Transparent"
+                                Clicked="BackButton_Clicked"/>
+                    </pancake:PancakeView>
+
+                    <!--Cover Image-->
+                    <Image Grid.Row="1"
+                           Source="{Binding SelectedBook.CoverImageUrl}"
+                           Aspect="AspectFit"
+                           VerticalOptions="Start" />
+
+                    <!--Book Name-->
+                    <pancake:PancakeView Grid.Row="2"
+                                         CornerRadius="50"
+                                         BackgroundColor="White"
+                                         Padding="5"
+                                       >
+                        <pancake:PancakeView.Border>
+                            <pancake:Border Color="Green" Thickness="3"/>
+                        </pancake:PancakeView.Border>
+                        <Entry x:Name="BookName"
+                               Text="{Binding SelectedBook.BookName}"
+                               TextColor="Black"
+                               FontAttributes="Bold"
+                               FontSize="35"
+                               HorizontalTextAlignment="Center" />
+                    </pancake:PancakeView>
+                
+
+                    <!--Book ID-->
+                    <StackLayout Grid.Row="3"
+                                 Spacing="10"
+                                 Padding="10"
+                                 VerticalOptions="Start">
+                        <StackLayout Orientation="Horizontal"
+                                     Spacing="10">
+                            <Label Text="Book ID:"
+                                   FontSize="Subtitle"
+                                   TextColor="NavajoWhite"/>
+                            <Label x:Name="BookID"
+                                   Text="{Binding SelectedBook.BookID}"
+                                   FontSize="Subtitle"
+                                   TextColor="AliceBlue" />
+                        </StackLayout>
+                    </StackLayout>
+
+                    <!--Book Genre-->
+                    <StackLayout Grid.Row="4"
+                                 Spacing="10"
+                                 Padding="10"
+                                 VerticalOptions="Start">
+                        <StackLayout Orientation="Horizontal"
+                                     Spacing="10">
+                            <Label Text="Book Genre:"
+                                   FontSize="Subtitle"
+                                   TextColor="NavajoWhite"/>
+                            <pancake:PancakeView 
+                                         CornerRadius="20"
+                                         BackgroundColor="White">
+                            <pancake:PancakeView.Border>
+                                <pancake:Border Color="Green" Thickness="3"/>
+                            </pancake:PancakeView.Border>
+                                <Entry x:Name="BookGenre"
+                                       Text="{Binding SelectedBook.GenreID}"
+                                       FontSize="Subtitle"
+                                       TextColor="Black" />
+                            </pancake:PancakeView>
+                        </StackLayout>
+                    </StackLayout>
+                 
+                    <!--Book Description-->
+                        <StackLayout Grid.Row="5"
+                                     Spacing="10"
+                                     Padding="10"
+                                     Margin="5, 0"
+                                     VerticalOptions="Start">
+                        <StackLayout Orientation="Vertical"
+                                     Spacing="10">
+                            <Label Text="Book Description:"
+                                   FontSize="Subtitle"
+                                   TextColor="NavajoWhite"/>
+                            <pancake:PancakeView Padding="10"
+                                         CornerRadius="20"
+                                         BackgroundColor="White"
+                                >
+                                <pancake:PancakeView.Border>
+                                    <pancake:Border Color="Green" Thickness="3"/>
+                                </pancake:PancakeView.Border>
+                                    <Editor x:Name="BookDescription"
+                                           Text="{Binding SelectedBook.BookDescription}"
+                                           FontSize="Subtitle"
+                                           TextColor="Black" />
+                            </pancake:PancakeView>
+                        </StackLayout>
+                    </StackLayout>
+                
+
+                    <!--Submit button-->
+                    <pancake:PancakeView Grid.Row="6"
+                                         Padding="10"
+                                         CornerRadius="80"
+                                         BackgroundColor="White"
+                                         HorizontalOptions="End">
+                    <pancake:PancakeView.Border>
+                        <pancake:Border Color="Black" Thickness="3"/>
+                    </pancake:PancakeView.Border>
+                        <ImageButton x:Name="EditBookDetails"               
+                                Source="edit_note_FILL0_wght400_GRAD0_opsz48.png"
+                                HeightRequest="50"
+                                HorizontalOptions="End"
+                                BackgroundColor="Transparent"
+                                Clicked="EditBookDetails_Clicked"/>
+                    </pancake:PancakeView>
+
+                    <!--Home Button-->
+                <pancake:PancakeView Grid.Row="7"  
+                                     CornerRadius="60, 60, 0, 0">
+                    <Button Text="Go Home"
+                            BackgroundColor="SpringGreen"
+                            HeightRequest="50"
+                            Command="{Binding HomeCommand}"/>
+                </pancake:PancakeView>
+                </Grid>
+            </ScrollView>   
+    </ContentPage.Content>
+   </ContentPage>
+
+
+        <!--Chapters Tab-->
+
+    <ContentPage Title="List of Chapters"
+                 xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:vm="clr-namespace:mobile_library.ViewModels">
+        <!--<ContentPage.BindingContext>
+            <vm:BookDetailsViewModel />
+        </ContentPage.BindingContext>-->
+        <ContentPage.Content>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <pancake:PancakeView Grid.Row="0"
+                    Margin="5"
+                    BackgroundColor="FloralWhite"
+                    CornerRadius="50, 50, 0, 0"
+                    >
+                    <Grid Padding="10"
+                          Margin="0, 20, 0, 0"
+                          >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <!--Latest Chapter Title-->
+                        <Label Grid.Row="0"
+                               Text="All Chapters"
+                               TextColor="Black"
+                               HorizontalOptions="CenterAndExpand"
+                               FontSize="25"
+                               FontAttributes="Bold"/>
+                        <CollectionView ItemsSource="{Binding ChaptersbyBookID}"
+                                        Grid.Row="1"
+                                        x:Name="BookChapters"
+                                        Margin="0, 20, 10, 0"
+                                        VerticalScrollBarVisibility="Always"
+                                        VerticalOptions="Start"
+                                        SelectionMode="Single"
+                                        SelectionChanged="BookChapters_SelectionChanged">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                        <Grid Margin="5, 15, 5, 0"
+                                              Padding="10">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <StackLayout Orientation="Horizontal"
+                                                         Spacing="10">
+                                             <!--Chapter ID/Number-->
+                                             <Label Text="{Binding ChapterID}"
+                                                    FontSize="12"
+                                                    TextColor="Black"
+                                                    FontAttributes="Bold"/>
+                                            <!--Chapter Name-->
+                                            <Label 
+                                                   Text="{Binding ChapterName}"
+                                                   FontSize="12"
+                                                   TextColor="Blue"/>
+                                            </StackLayout>
+                                        
+                                        </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>       
+             </pancake:PancakeView>
+        </Grid>
+    </ContentPage.Content>
+    </ContentPage>
+</TabbedPage>

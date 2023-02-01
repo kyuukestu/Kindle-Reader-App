@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.810.20
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mobile_library.Android", "mobile_library.Android\mobile_library.Android.csproj", "{E1559C68-6439-4B2A-B8CC-85A139FE0E2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mobile_library", "mobile_library\mobile_library.csproj", "{82634DCB-AA5A-426D-A453-B56A4EBFE731}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1559C68-6439-4B2A-B8CC-85A139FE0E2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1559C68-6439-4B2A-B8CC-85A139FE0E2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1559C68-6439-4B2A-B8CC-85A139FE0E2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1559C68-6439-4B2A-B8CC-85A139FE0E2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82634DCB-AA5A-426D-A453-B56A4EBFE731}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82634DCB-AA5A-426D-A453-B56A4EBFE731}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82634DCB-AA5A-426D-A453-B56A4EBFE731}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82634DCB-AA5A-426D-A453-B56A4EBFE731}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5C165555-B62E-476B-9576-05EECDC0BAFC}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:vm="clr-namespace:mobile_library.ViewModels"
+    x:Class="mobile_library.ViewsPages.LogoutView">
+
+    <ContentPage.BindingContext>
+        <vm:LogoutViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid Padding="15"
+              Margin="15, 0"
+              BackgroundColor="DimGray">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+             <Image
+                    Grid.Row="0"
+                    Margin="0, 30"
+                    Source="hasa.png"
+                    Aspect="AspectFit"
+                    HeightRequest="120"
+                    WidthRequest="80"
+                    BackgroundColor="Transparent"/>
+            <pancake:PancakeView Grid.Row="1"
+                                 BackgroundColor="WhiteSmoke"
+                                 CornerRadius="20">
+                <pancake:PancakeView.Border>
+                    <pancake:Border Color="Black" Thickness="5"/>
+                </pancake:PancakeView.Border>
+                <StackLayout Orientation="Vertical"
+                             Spacing="15"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center"
+                             >
+                    <Label Text="Are you sure you want to logout?"
+                           Grid.Row="0"
+                           FontSize="30"
+                           HorizontalOptions="Center"
+                           />
+                    <Button Text="Yes, Logout"
+                            HorizontalOptions="Center"
+                            Command="{Binding LogoutCommand}"
+                            BackgroundColor="Red"
+                            CornerRadius="25"/>
+                    <Button Text="No, Return to Home Page"
+                            HorizontalOptions="Center"
+                            Command="{Binding HomeCommand}"
+                            BackgroundColor="Green"
+                            CornerRadius="25"/>
+                </StackLayout>
+            </pancake:PancakeView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    x:Class="mobile_library.ViewsPages.AuthoredBooksView">
+    <ContentPage.Content>
+        <Grid BackgroundColor="FloralWhite"
+              Margin="15, 10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+             <Label Grid.Row="0"
+                   Text="Your Stories!"
+                   TextColor="Black"
+                   FontSize="35"
+                   FontAttributes="Bold"/>
+
+           <pancake:PancakeView Grid.Row="1"
+                                CornerRadius="25, 25, 0, 0"
+                                 BackgroundColor="White"
+                                 Padding="15"
+                                 Margin="0, 0, 0, -20">
+                <Grid Padding="20, 25">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                     <!--Back button-->
+                    <pancake:PancakeView Grid.Row="0"
+                                         Padding="10"
+                                         CornerRadius="80"
+                                         BackgroundColor="White"
+                                         HorizontalOptions="Start">
+                    <pancake:PancakeView.Border>
+                        <pancake:Border Color="Green" Thickness="3"/>
+                    </pancake:PancakeView.Border>
+                        <ImageButton x:Name="BackButton"               
+                                Source="arrow_back_FILL0_wght400_GRAD0_opsz48.png"
+                                HeightRequest="50"
+                                HorizontalOptions="End"
+                                BackgroundColor="Transparent"
+                                Clicked="BackButton_Clicked"/>
+                    </pancake:PancakeView>
+
+                    <!--List of Books by Author/User Collection View-->
+                    <CollectionView ItemsSource="{Binding BooksbyAuthor}"
+                                    x:Name="AuthoredBooks"
+                                    VerticalOptions="Start"
+                                    VerticalScrollBarVisibility="Always"
+                                    Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                                    SelectionMode="Single"
+                                    ItemsLayout="VerticalList"
+                                    SelectionChanged="AuthoredBooks_SelectionChanged"
+                                    >
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Frame HasShadow="False"
+                                           BackgroundColor="DimGray"
+                                           HeightRequest="150"
+                                           CornerRadius="25"
+                                           Margin="0, 10"
+                                           Padding="10">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <!--Book Image-->
+                                            <pancake:PancakeView Grid.Column="0"
+                                                                 Grid.Row="0"
+                                                                 Grid.RowSpan="2"
+                                                                 CornerRadius="15"
+                                                                 Margin="0, 0, 10, 0"
+                                                                 >
+                                                    <Image Source="{Binding CoverImageUrl}"
+                                                           HeightRequest="100"
+                                                                 WidthRequest="95"
+                                                           Aspect="AspectFill" />
+                                             </pancake:PancakeView>
+                                            <!--Book Title-->
+                                            <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"
+                                                   Text="{Binding BookName}"
+                                                   TextColor="FloralWhite"
+                                                   FontSize="15"
+                                                   FontAttributes="Bold"
+                                                   HorizontalOptions="CenterAndExpand"/>
+                                            <!--Book Description-->
+                                            <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
+                                                   Text="{Binding BookDescription}"
+                                                   FontSize="12"
+                                                   TextColor="Red"
+                                                   HorizontalOptions="StartAndExpand"
+                                                   VerticalOptions="StartAndExpand"/>
+                                            
+                                        </Grid>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </pancake:PancakeView>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
